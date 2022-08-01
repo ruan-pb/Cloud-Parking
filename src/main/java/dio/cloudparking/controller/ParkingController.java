@@ -13,7 +13,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import dio.cloudparking.controller.dto.ParkingCreateDTO;
+import dio.cloudparking.controller.dto.ParkingDTO;
+import dio.cloudparking.controller.mapper.ParkingMapper;
 import dio.cloudparking.entity.Parking;
+import dio.cloudparking.service.ParkingService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/parking")
@@ -66,10 +72,8 @@ public class ParkingController {
 
     @PostMapping("/{id}/exit")
     public ResponseEntity<ParkingDTO> checkOut(@PathVariable String id) {
-        //TODO verificar se já não esta fechado e lançar exceção
         Parking parking = parkingService.checkOut(id);
         return ResponseEntity.ok(parkingMapper.toParkingDTO(parking));
     }
 
 }
-Footer

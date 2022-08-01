@@ -3,8 +3,10 @@ package dio.cloudparking.controller.mapper;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
+import dio.cloudparking.controller.dto.ParkingCreateDTO;
 import dio.cloudparking.controller.dto.ParkingDTO;
 import dio.cloudparking.entity.Parking;
 
@@ -28,3 +30,4 @@ public class ParkingMapper {
     public Parking toParkingCreate(ParkingCreateDTO dto) {
         return MODEL_MAPPER.map(dto, Parking.class);
     }
+}
