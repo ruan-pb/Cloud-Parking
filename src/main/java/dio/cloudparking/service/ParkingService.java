@@ -22,12 +22,12 @@ public class ParkingService {
         this.parkingRepository = parkingRepository;
     }
 
-    @Transactional(readOnly = true)
+    @Transactional()
     public List<Parking> findAll() {
         return parkingRepository.findAll();
     }
 
-    @Transactional(readOnly = true)
+    @Transactional()
     public Parking findById(String id) {
         return parkingRepository.findById(id).orElseThrow(
                 () -> new ParkingNotFoundException(id));
